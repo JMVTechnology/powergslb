@@ -50,6 +50,9 @@ class PowerDNSDatabaseMixIn(object):
                 WHERE `names`.`name` = %s
                   AND `records`.`disabled` = 0
             """
+            qname2 = qname.replace('*.','')
+            qname2 = qname2.replace('www.','')
+            
             params = (qname,)
         else:
             operation += """
